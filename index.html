@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/css/calendar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="http://spasitelbg.com/images/favicon.ico" rel="icon">
+</head>
+
+<body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/bg_BG/sdk.js#xfbml=1&version=v2.7";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="preloader">
+        <div id="loading-animation">&nbsp;</div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-9"></div>
+            <div class="col-sm-3">
+                <div id="calendar"></div>
+                <div class="random-lecture"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid"></div>
+
+    <!-- DEPENDENCIES -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="/lib/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>
+    <script src="/lib/js/jquery.twbsPagination.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
+    <script src="/lib/js/calendar.js"></script>
+    <script src="/lib/js/backbone.paginator.js"></script>
+
+    <!-- MODELS -->
+    <script src="/js/models/event.js"></script>
+    <script src="/js/models/main.js"></script>
+    <script src="/js/models/menu.js"></script>
+    <script src="/js/models/friend.js"></script>
+    <!-- COLLECTIONS -->
+    <script src="/js/collections/pages.js"></script>
+    <script src="/js/collections/search.js"></script>
+    <script src="/js/collections/events.js"></script>
+    <script src="/js/collections/lectures.js"></script>
+    <script src="/js/collections/news.js"></script>
+    <script src="/js/collections/friends.js"></script>
+    <script src="/js/collections/menu.js"></script>
+    <!-- VIEWS -->
+
+    <script src="/js/views/item.js"></script>
+    <script src="/js/views/itemDetails.js"></script>
+    <script src="/js/views/search.js"></script>
+    <script src="/js/views/randomLecture.js"></script>
+    <script src="/js/views/news.js"></script>
+    <script src="/js/views/lectures.js"></script>
+    <script src="/js/views/menu.js"></script>
+    <script src="/js/views/footer.js"></script>
+    <script src="/js/views/friends.js"></script>
+
+    <script src="/js/views/paginator.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script id="calendar-template" type="text/template">
+    <div class="controls">
+        <div class="calendar-previous-button">&lsaquo;</div><div class="month"><%= month %> <%= year %></div><div class="calendar-next-button">&rsaquo;</div>
+    </div>
+
+    <div class="days-container">
+        <div class="days">
+            <div class="headers">
+                <% _.each(daysOfTheWeek, function(day) { %><div class="day-header"><%= day %></div><% }); %>
+            </div>
+            <% _.each(days, function(day) { %><div class="<%= day.classes %>"><%= day.day %></div><% }); %>
+        </div>
+        <div class="events">
+            <div class="headers">
+                <div class="x-button">x</div>
+                <div class="event-header">Събития</div>
+            </div>
+            <div class="events-list">
+                <% _.each(eventsThisMonth, function(event) { %>
+                <div class="event">
+                    <% if (!event.endDate) { %>
+                    <a href="<%= event.link %>">
+                    <%= moment(event.startDate).format('Do MMMM') %>:
+                    <%= event.title %>
+                    </a>
+                    <% }  else {
+                    if (moment(event.startDate).format('YYYY-MM') === moment(event.endDate).format('YYYY-MM')) { %>
+                    <a href="<%= event.link %>">
+                    <%= moment(event.startDate).format('Do') + ' - ' + moment(event.endDate).format('Do') %>:
+                    <%= event.title %>
+                    </a>
+                    <% } else { %>
+                    <a href="<%= event.link %>">
+                    <%= moment(event.startDate).format('Do MMMM') + ' - ' + moment(event.endDate).format('Do MMMM') %>:
+                    <%= event.title %>
+                    </a>
+                    <% } } %>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</script>
+</body>
+
+</html>

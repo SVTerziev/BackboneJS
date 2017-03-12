@@ -1,0 +1,14 @@
+<a href="/lectures/<%= id %>">
+    <div class="card-block">
+        <h5 class="card-title"><%= title %></h5>
+        <% if (image) { %>
+    </div>
+    <div style='height: 8rem; background: url(<%= image %>) center / cover no-repeat;'></div>
+    <div class="card-block">
+        <% } %>
+        <p class="card-text">
+            <% if (text.length > 120) { text = text.substring(0, 120) + '...' } %>
+            <%= text %>
+        </p>
+    </div>
+</a>

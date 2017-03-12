@@ -1,0 +1,277 @@
+@font-face {
+  font-family: museo-sans;
+  src: url('museosans.ttf');
+}
+
+body {
+  background: #f5f5f5;
+  padding-top: 5rem;
+}
+
+dd {
+  margin-bottom: 0;
+}
+
+small.show-more {
+  padding: 1rem;
+}
+
+footer {
+  background: #893525;
+  text-align: center;
+  color: white;
+}
+
+footer form {
+  padding-top: .5rem;
+}
+
+footer .form-control {
+  background: #893525;
+  color: white;
+}
+
+address {
+  padding-top: 1rem;
+}
+
+address > a {
+  color: white;
+}
+
+address > a:hover,
+address > a:focus {
+  color: white;
+  text-decoration: none;
+}
+
+/* CARDS */
+.card {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  background: white;
+}
+
+.card-block {
+  padding: 1rem;
+}
+
+.card-block:hover {
+  box-shadow: 0 0 5px 0 black;
+}
+
+.random-lecture .card-block:hover,
+.item-details .card-block:hover,
+.no-results.card-block:hover,
+.card-columns .card-block:hover {
+  box-shadow: none;
+}
+
+.friends + .card-footer {
+  position: absolute;
+  bottom: 0;
+  right:0;
+  left:0;
+  margin-top: 10rem;
+}
+
+.card-columns {
+  padding-bottom: 5rem;
+}
+
+.card-columns .card {
+  margin-right: 6px;
+  margin-left: 6px;
+  margin-top: 6px;
+}
+
+.card-footer > ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.card-footer > span {
+  float: right;
+}
+
+.card-footer {
+  margin-top: .1rem;
+}
+
+.friends .card img {
+  width: 100%;
+  max-height: 150px;
+}
+
+.card img.card-img-top {
+  height: 15rem;
+}
+.card-columns .card-text {
+  font-size: .9rem;
+}
+
+.card-columns p.card-text {
+  height: 7rem;
+  overflow: hidden;
+}
+/* END OF CARDS */
+
+/* MENU */
+.navbar * {
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+}
+
+.navbar {
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+  height: 4.5em;
+  padding-top: 1.4rem;
+  background: #e5593f;
+  box-shadow: 0 0 .3rem;
+}
+
+.navbar.shrink {
+  height: 3em;
+  padding-top: 0;
+}
+
+.navbar.shrink .nav-link {
+  padding-top: 1rem;
+  padding-bottom: 0.7rem;
+}
+
+.navbar.shrink li.form-inline {
+  padding-top: 0.5rem;
+}
+
+.navbar a {
+  font-family: museo-sans, helvetica, sans-serif;
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  letter-spacing: .15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: .85rem;
+}
+
+.navbar a:hover,
+.navbar a:focus,
+.active {
+  background: #ff7259;
+}
+
+.navbar .navbar-brand > abbr {
+  font-size: 1rem;
+  border-bottom: 0;
+}
+
+.navbar.shrink .navbar-brand {
+  padding-top: .7rem;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:active,
+.navbar .navbar-brand:focus {
+  background: none;
+}
+
+.navbar .nav-item + .nav-item{
+  margin-left: 0;
+}
+
+.navbar button.btn-danger {
+  background: #e5593f;
+}
+
+.navbar li.form-inline {
+  float: right;
+}
+
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  display: block;
+  margin: 0;
+  padding:0;
+  background: #e5593f;
+  border: none;
+}
+
+ul.nav li.dropdown:hover > ul.dropdown-menu.adjust-submenu {
+  margin-top: -0.05rem;
+}
+
+.dropdown-menu > li {
+  width: 100%;
+  padding: 0;
+}
+/* END OF MENU */
+
+/* PRELOAD */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    z-index: 10001;
+}
+#loading-animation {
+    width: 120px;
+    height: 128px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-image:url(loading-animation.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -60px 0 0 -64px;
+}
+/* END OF PRELOAD */
+
+/* PAGINATION */
+.pagination>.page-item.active>a,
+.pagination>.page-item.active>a:focus,
+.pagination>.page-item.active>a:hover,
+.pagination>.page-item.active>span,
+.pagination>.page-item.active>span:focus,
+.pagination>.page-item.active>span:hover {
+  background: #ff7259;
+  border-color: #ff7259;
+}
+
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {
+  color: #ff7259;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+  color: black;
+}
+/* END OF PAGINATION */
+
+img.media-object {
+  max-width: 100px;
+}
+
+.media > a,
+.random-lecture a,
+.card-columns a {
+  text-decoration: none;
+  color: black;
+  outline: none;
+}
+
+.random-lecture > .card,
+.friends .card {
+  border-right: none;
+}
+
+.selected {
+  box-shadow: 0 0 10px tomato;
+}

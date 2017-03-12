@@ -1,0 +1,36 @@
+<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+  &#9776;
+</button>
+ <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+<a class="navbar-brand" href="/">
+    <abbr title="Съюз на българските спасители">СБС</abbr>
+</a>
+<ul class="nav navbar-nav">
+    <% var collection = this.collection.toJSON();
+    var parents = _.filter(collection, function (item) { return parseInt(item.parent) === 0; });
+    var children;
+    parents.forEach(function (menu) {
+        children = _.filter(collection, function (item) { return item.parent === menu.id }); %>
+        <li class="nav-item <% if (children.length !== 0) { %>dropdown<% } %>">
+            <a class="nav-link" href="<%= menu.link %>"><%= menu.name %></a>
+            <% if (children.length !== 0) { %>
+                <ul class="dropdown-menu">
+                <% children.forEach(function (child) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= child.link %>"><%= child.name %></a>
+                    </li>
+                <% }); %>
+            </ul>
+            <% } %>
+        </li>
+    <% }); %>
+    <li class="nav-item form-inline hidden-md-down">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Търсете в сайта">
+            <span class="input-group-btn">
+                  <button class="btn btn-danger search" type="button">Търси</button>
+            </span>
+        </div>
+    </li>
+</ul>
+</div>

@@ -1,0 +1,15 @@
+<div class="media">
+    <% var href = '/' + itemFor + '/' + id;
+    if (itemFor === 'page') {
+        href = link;
+    }
+    if (image) { %>
+    <a class="media-left" href="<%= href %>">
+        <img class="media-object" src="<%= image %>">
+    </a>
+    <% } %>
+    <a href="<%= href %>" class="media-body">
+        <h4 class="media-heading"><%= title %></h4>
+        <%= text %>
+    </a>
+</div>
